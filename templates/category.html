@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Category Manager</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+        }
+
+        .container {
+            width: 400px;
+            margin: 60px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-box {
+            display: flex;
+            gap: 10px;
+        }
+
+        .form-box input {
+            flex: 1;
+            padding: 8px;
+        }
+
+        .form-box button {
+            padding: 8px 12px;
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .form-box button:hover {
+            background: #0056b3;
+        }
+
+        .list-box {
+            margin-top: 20px;
+        }
+
+        .list-box ul {
+            padding-left: 20px;
+        }
+
+        .list-box li {
+            padding: 5px 0;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h2>📚 Category Manager</h2>
+
+    <form method="POST" class="form-box">
+        <input type="text" name="name" placeholder="Enter Category Name" required>
+        <button type="submit">Add</button>
+    </form>
+
+    <div class="list-box">
+        <h3>All Categories</h3>
+
+        {% if categories %}
+            <ul>
+                {% for cat in categories %}
+                    <li>{{ cat.name }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No categories added yet.</p>
+        {% endif %}
+    </div>
+
+</div>
+
+</body>
+</html>
